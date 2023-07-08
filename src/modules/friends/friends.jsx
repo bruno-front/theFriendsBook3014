@@ -1,3 +1,4 @@
+import Friend from "../friend/friend";
 import css from "./friends.module.css";
 
 let friendsList = [
@@ -29,31 +30,15 @@ let friendsList = [
 
 let friendsHtml = [];
 
-for (let i = 0; i < friendsList.length; i++) {
-  let button = friendsList[i].isFollow ?
-  <button className={css.follow}>Отписка</button> :
-  <button className={css.follow}>Подписаться</button>
-
+friendsList.forEach((friendsItem) => {
   friendsHtml.push(
     <li className={css.item}>
-      <div className={css.friend}>
-        <div className={css.ava}>
-          <img
-            src={friendsList[i].src}
-            alt={friendsList[i].alt}
-            className={css.img}
-          />
-        </div>
-        <div className={css.info}>
-          <strong className={css.name}>{friendsList[i].name}</strong>
-        </div>
-        {button}
-      </div>
+      <Friend
+        friendData={friendsItem}
+      />
     </li>
   );
-}
-
-console.log(friendsHtml);
+});
 
 function Friends() {
   return (

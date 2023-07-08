@@ -1,12 +1,14 @@
+import { NavLink } from "react-router-dom";
+
 function Menu() {
   return (
     <nav className="Menu">
       <ul>
         <li>
-          <span>Профиль</span>
+          <NavLink to='/profile'>Профиль</NavLink>
         </li>
         <li>
-          <span>Друзья</span>
+          <NavLink to='/friends'>Друзья</NavLink>
         </li>
       </ul>
     </nav>
